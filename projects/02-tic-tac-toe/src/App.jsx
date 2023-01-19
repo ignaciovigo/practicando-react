@@ -14,7 +14,7 @@ function App() {
     return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null);
   });
 
-  const [turn, setTurn] = useState(() =>{
+  const [turn, setTurn] = useState(() => {
     const turnFromStorage = window.localStorage.getItem('turn')
     return turnFromStorage ?? TURNS.X;
   });
@@ -54,9 +54,9 @@ function App() {
     setWinner(null);
     window.localStorage.clear()
   };
-  useEffect( ()=>{
+  useEffect(() => {
     console.log('hola')
-  },[winner])
+  }, [winner])
   return (
     <main className="board">
       <h1>Tic Tac Toe</h1>
