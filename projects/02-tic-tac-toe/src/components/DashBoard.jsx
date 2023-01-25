@@ -1,8 +1,8 @@
-import Square from "./Square";
+import Square from './Square'
 
-function DashBoard({board, updateBoard}) {
+function DashBoard ({ board, updateBoard }) {
   return (
-    <section className="game">
+    <section className='game'>
       {
         board.map((cell, index) => {
           return (
@@ -13,7 +13,7 @@ function DashBoard({board, updateBoard}) {
         })
       }
     </section>
-  );
+  )
 }
 
-export default DashBoard;
+export default DashBoard
