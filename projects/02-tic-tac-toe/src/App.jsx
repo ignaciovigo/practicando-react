@@ -54,9 +54,6 @@ function App() {
     setWinner(null);
     window.localStorage.clear()
   };
-  useEffect(() => {
-    console.log('hola')
-  }, [winner])
   return (
     <main className="board">
       <h1>Tic Tac Toe</h1>
