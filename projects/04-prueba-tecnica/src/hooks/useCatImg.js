@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+const CAT_PREFIX_IMAGE_URL = 'https://cataas.com/'
 export function useCatImg ({ fact }) { // recuperar la img cada vez que tengamos una cita nueva
   const [urlImg, setUrlImg] = useState()
   useEffect(() => {
@@ -12,5 +13,5 @@ export function useCatImg ({ fact }) { // recuperar la img cada vez que tengamos
         setUrlImg(url)
       })
   }, [fact])
-  return { urlImg }
+  return { urlImg: `${CAT_PREFIX_IMAGE_URL}${urlImg}` }
 }
