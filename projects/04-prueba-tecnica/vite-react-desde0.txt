@@ -1,0 +1,23 @@
+Como pasar de un proyecto vanilla a un proyecto de react con vite creando  nuestro punto de entrada a la aplicacion
+ya existe un plugin de vite para react, como es babel para webpack.
+
+
+1- instalar el plugin en consola -> npm install @vitejs/plugin-react -E (-E version exacta)
+
+2- instalar las dependecias de react -> npm install react react-dom -E 
+
+3- crear nuestra configuracion de vite -> vite.config.js
+
+    importamos definde config de vite
+    importamos react de vitejs/plugin-react
+     
+    exportamos defindeConfig y dentro un objeto con la propiedad plugins:[react()]
+
+
+4- Creamos e punto de entrada de la aplicacion en main.js
+
+ 4.1 - importamos del react-dom/client el createRoot
+ 4.2 - en createRoot le pasamos el elemento con el id correspondiente donde quiero que se renderize mi aplicacion de react
+ 4.3 - renderizo el createRoot con la propiedad render
+ 4.4 - cambiamos las extensiones js por jsx
+
