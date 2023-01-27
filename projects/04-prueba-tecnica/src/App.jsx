@@ -1,23 +1,31 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { getRandomFact, getRandomImgByText } from './services/facts'
+import { getRandomFact } from './services/facts'
 
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
 
+function useCatImg({fact}){  // recuperar la img cada vez que tengamos una cita nueva
+  const [urlImg, setUrlImg] = useState()
+  useEffect(() => {
+    if (!fact) return // si fact esta vacio no hago nada
+    const threeFirstWords = fact.split(' ', 3).join(' ')
+    fetch(`https://cataas.com/cat/says/${threeFirstWords}?size=50&color=red&json=true`)
+    .then( resp => resp.json())
+    .then( json  =>{
+      const { url } = json
+      setUrlImg(url)
+    })
+  },[fact])
+  return { urlImg }
+}
+
 function App () {
   const [fact, setFact] = useState()
-  const [urlImg, setUrlImg] = useState()
+  const { urlImg } = useCatImg({fact})
 
   useEffect(() => {
-    getRandomFact().then(setFact)
+    getRandomFact().then(setFact) // → then(newFact => setFact(newFact))
   }, [])
-
-  // recuperar la img cada vez que tengamos una cita nueva
-  useEffect(() => {
-    if (!fact) return
-    const threeFirstWords = fact.split(' ', 3).join(' ')
-    getRandomImgByText(threeFirstWords).then(newUrl => setUrlImg(newUrl))
-  }, [fact])
 
   const handleClick = () => {
     getRandomFact().then(setFact)
