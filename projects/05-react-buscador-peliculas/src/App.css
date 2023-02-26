@@ -7,9 +7,9 @@
     max-width: 800px;
     gap:1em;
 }
-
-
 main{
+    position: relative;
+    top: 10em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,54 +18,10 @@ main{
 }
 .form{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-}
 
-/* .lm{
-    display: flex;
-    gap:1em;
-    overflow-x: scroll;
-    width: 100vw;
-    list-style-type: none;
 }
-
-.lm-item{
-   width:600px;
-   position: relative;
-    z-index: 11;
-    background-color: rgba(0, 0, 0, 0.288);
-    opacity: .7;
-    border-radius: 5px;
-    transition: all .3s ease;
-}
-
-.lm-item:hover{
-    opacity: 1;
-    background-color: black;
-}
-.lm-item h3{
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: auto;
-    margin-top: 0;
-}
-.lm-item figure{
-    width: 200px;
-    height: 400px;
-    display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-}
-
-.lm-item figcaption{
-    margin-top: auto;
-}
-
-.lm-item:hover figure img{
-    transform: scale(1.1);
-    transition: all .3s ease;
-} */
 
 .lm{
     list-style-type: none;
@@ -111,3 +67,66 @@ main{
 .lm-item img{
     border-radius: 8px;
 }
+
+
+
+.orderMoviesContainer input{
+    display: none;
+}
+.orderMoviesContainer span{
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    height: 2em;
+    width: 2em;
+    background-color: black;
+    border-radius: 100%;
+    transition: .3s ease;
+}
+.orderMoviesContainer{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    background-color: #2d5985;
+    border-radius: 30px;
+}
+.orderMoviesContainer label{
+    margin: 0;
+    display: flex;
+    padding: .2em;
+}
+
+.orderMoviesContainer p{
+    padding: 0;
+    margin: 0;
+}
+.orderMoviesContainer input:checked ~ span {
+    box-shadow: 0px 0px 30px 0px #0099ff;
+}
+
+.orderMoviesContainer span::after{
+    content: "";
+    position: absolute;
+    border: solid wheat;
+    border-width: 0 0.30em 0.30em 0;
+    transform:  rotate(45deg);
+    width: 0.50em;
+    height: 1em;
+    left: 0.6em;
+    top: 0.25em;
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.orderMoviesContainer input:checked ~ span::after{
+    opacity: 1;
+}
+
+
+.searchContainer{
+    display: flex;
+}
+

@@ -49,9 +49,17 @@ function App () {
       <header>
         <h1> Buscador de Peliculas</h1>
         <form className='form' onSubmit={handleSubmit}>
-          <input onChange={handleChange} value={search} style={{ border: '1px solid transparent', borderColor: error ? 'red' : 'transparent' }} name='query' id='' />
-          <input type='checkbox' onChange={handleCheck} checked={sort} />
-          <button type='submit'>Buscar</button>
+          <div className='searchContainer'>
+            <input onChange={handleChange} value={search} style={{ border: '1px solid transparent', borderColor: error ? 'red' : 'transparent' }} name='query' id='' />
+            <button type='submit'>Buscar</button>
+          </div>
+          <div className='orderMoviesContainer'>
+            <label htmlFor='orderMovies'>
+              <input type='checkbox' id='orderMovies' onChange={handleCheck} checked={sort} />
+              <span className='checkMark'></span>
+            </label>
+            <p>Mostrar peliculas mas recientes primero</p>
+          </div>
         </form>
         {error && <p style={{ color: 'red', margin: '0px' }}>{error}</p>}
       </header>
